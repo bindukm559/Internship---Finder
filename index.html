@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Internship Finder - a mobile-first responsive frontend interface for discovering internship opportunities.">
+
+    <title>Internship Finder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Accessibility -->
+    <a class="skip-link" href="#main-content">
+        Skip to main content
+    </a>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <a class="brand" href="#home">
+                <span class="brand-mark">IF</span>
+                <span>Internship Finder</span>
+            </a>
+
+
+            <!-- Mobile menu -->
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="primary-navigation">
+
+                ☰
+
+            </button>
+
+
+            <!-- Navigation -->
+
+            <nav
+                class="primary-nav"
+                id="primary-navigation"
+                aria-label="Primary navigation">
+
+                <a class="nav-link active" href="#home">
+                    Home
+                </a>
+
+                <a class="nav-link" href="#internships">
+                    Internships
+                </a>
+
+                <a class="nav-link" href="#about">
+                    About
+                </a>
+
+                <a class="nav-link" href="#saved">
+                    Saved
+                    <span id="saved-count">0</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main id="main-content">
+
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero" id="home">
+
+            <div class="container hero-grid">
+
+                <div class="hero-copy">
+
+                    <p class="eyebrow">
+                        DISCOVER • LEARN • GROW
+                    </p>
+
+                    <h1>
+                        Find an internship that fits your journey.
+                    </h1>
+
+                    <p class="hero-text">
+                        Search and explore internship opportunities
+                        through a clear, mobile-first interface
+                        designed for students.
+                    </p>
+
+
+                    <!-- Search -->
+
+                    <form
+                        class="search-form"
+                        id="search-form">
+
+                        <label for="search-input">
+                            Search internships
+                        </label>
+
+                        <div class="search-row">
+
+                            <input
+                                id="search-input"
+                                type="search"
+                                placeholder="Search role, skill or company">
+
+                            <button
+                                class="button button-primary"
+                                type="submit">
+
+                                Search
+
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Project card -->
+
+                <aside class="hero-card">
+
+                    <p class="hero-card-label">
+                        PROJECT 1
+                    </p>
+
+                    <h2>
+                        Responsive Frontend Interface
+                    </h2>
+
+                    <p>
+                        Built with HTML5, CSS3 and basic
+                        JavaScript without a framework.
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        EXPLORE
+                    </p>
+
+                    <h2>
+                        Internship Categories
+                    </h2>
+
+                </div>
+
+
+                <div class="category-list">
+
+                    <button
+                        type="button"
+                        class="category-button active"
+                        data-category="All">
+
+                        All
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-button"
+                        data-category="Web Development">
+                        
+
+                        Web Development
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-button"
+                        data-category="Python">
+
+                        Python
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-button"
+                        data-category="Data">
+
+                        Data
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="category-button"
+                        data-category="UI/UX">
+
+                        UI/UX
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INTERNSHIPS ================= -->
+
+        <section
+            class="internships-section"
+            id="internships">
+
+            <div class="container">
+
+                <div class="section-heading section-heading-row">
+
+                    <div>
+
+                        <p class="eyebrow">
+                            OPPORTUNITIES
+                        </p>
+
+                        <h2>
+                            Available Internships
+                        </h2>
+
+                    </div>
+
+                    <p id="result-count">
+                        6 internships
+                    </p>
+
+                </div>
+
+
+                <div class="content-layout">
+
+
+                    <!-- FILTER -->
+
+                    <aside class="filter-panel">
+
+                        <h3>
+                            Quick Filter
+                        </h3>
+
+                        <label for="duration-filter">
+                            Duration
+                        </label>
+
+                        <select id="duration-filter">
+
+                            <option value="All">
+                                All durations
+                            </option>
+
+                            <option value="2 Months">
+                                2 Months
+                            </option>
+
+                            <option value="3 Months">
+                                3 Months
+                            </option>
+
+                            <option value="6 Months">
+                                6 Months
+                            </option>
+
+                        </select>
+
+
+                        <button
+                            class="button button-secondary"
+                            id="reset-button"
+                            type="button">
+
+                            Reset Filters
+
+                        </button>
+
+                    </aside>
+
+
+                    <!-- INTERNSHIP CARDS -->
+
+                    <div
+                        class="internship-grid"
+                        id="internship-list">
+
+
+                        <!-- CARD 1 -->
+
+                        <article
+                            class="internship-card"
+                            data-category="Web Development"
+                            data-duration="3 Months"
+                            data-search="web development frontend html css javascript abc technologies">
+
+                            <div class="card-topline">
+
+                                <span class="tag">
+                                    Web Development
+                                </span>
+
+                                <button
+                                    class="save-button"
+                                    type="button"
+                                    aria-pressed="false">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+                            <h3>
+                                Web Development Internships
+                            </h3>
+
+                            <p class="company">
+                                ABC Technologies
+                            </p>
+
+                            <div class="details-list">
+
+                                <div>
+                                    <span>Duration</span>
+                                    <strong>3 Months</strong>
+                                </div>
+
+                                <div>
+                                    <span>Mode</span>
+                                    <strong>Remote</strong>
+                                </div>
+
+                            </div>
+
+                            <details>
+
+                                <summary>
+                                    View Details
+                                </summary>
+
+                                <p>
+                                    Practise responsive frontend
+                                    development using HTML, CSS
+                                    and JavaScript.
+                                </p>
+
+                            </details>
+
+                        </article>
+
+
+                        <!-- CARD 2 -->
+
+                        <article
+                            class="internship-card"
+                            data-category="Python"
+                            data-duration="2 Months"
+                            data-search="python programming backend xyz solutions">
+
+                            <div class="card-topline">
+
+                                <span class="tag">
+                                    Python
+                                </span>
+
+                                <button
+                                    class="save-button"
+                                    type="button"
+                                    aria-pressed="false">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+                            <h3>
+                                Python Development Internship
+                            </h3>
+
+                            <p class="company">
+                                XYZ Solutions
+                            </p>
+
+                            <div class="details-list">
+
+                                <div>
+                                    <span>Duration</span>
+                                    <strong>2 Months</strong>
+                                </div>
+
+                                <div>
+                                    <span>Mode</span>
+                                    <strong>Hybrid</strong>
+                                </div>
+
+                            </div>
+
+                            <details>
+
+                                <summary>
+                                    View Details
+                                </summary>
+
+                                <p>
+                                    Practise Python programming
+                                    through beginner-friendly
+                                    development tasks.
+                                </p>
+
+                            </details>
+
+                        </article>
+
+
+                        <!-- CARD 3 -->
+
+                        <article
+                            class="internship-card"
+                            data-category="Data"
+                            data-duration="6 Months"
+                            data-search="data analytics sql python data science">
+
+                            <div class="card-topline">
+
+                                <span class="tag">
+                                    Data
+                                </span>
+
+                                <button
+                                    class="save-button"
+                                    type="button"
+                                    aria-pressed="false">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+                            <h3>
+                                Data Analytics Internship
+                            </h3>
+
+                            <p class="company">
+                                DataWorks
+                            </p>
+
+                            <div class="details-list">
+
+                                <div>
+                                    <span>Duration</span>
+                                    <strong>6 Months</strong>
+                                </div>
+
+                                <div>
+                                    <span>Mode</span>
+                                    <strong>On-site</strong>
+                                </div>
+
+                            </div>
+
+                            <details>
+
+                                <summary>
+                                    View Details
+                                </summary>
+
+                                <p>
+                                    Explore datasets and practise
+                                    basic analysis with Python and SQL.
+                                </p>
+
+                            </details>
+
+                        </article>
+
+
+                        <!-- CARD 4 -->
+
+                        <article
+                            class="internship-card"
+                            data-category="UI/UX"
+                            data-duration="3 Months"
+                            data-search="ui ux design user interface user experience">
+
+                            <div class="card-topline">
+
+                                <span class="tag">
+                                    UI/UX
+                                </span>
+
+                                <button
+                                    class="save-button"
+                                    type="button"
+                                    aria-pressed="false">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+                            <h3>
+                                UI/UX Design Internship
+                            </h3>
+
+                            <p class="company">
+                                Design Studio
+                            </p>
+
+                            <div class="details-list">
+
+                                <div>
+                                    <span>Duration</span>
+                                    <strong>3 Months</strong>
+                                </div>
+
+                                <div>
+                                    <span>Mode</span>
+                                    <strong>Remote</strong>
+                                </div>
+
+                            </div>
+
+                            <details>
+
+                                <summary>
+                                    View Details
+                                </summary>
+
+                                <p>
+                                    Create wireframes and improve
+                                    user experiences for web interfaces.
+                                </p>
+
+                            </details>
+
+                        </article>
+
+
+                        <!-- CARD 5 -->
+
+                        <article
+                            class="internship-card"
+                            data-category="Web Development"
+                            data-duration="6 Months"
+                            data-search="full stack web development javascript html css">
+
+                            <div class="card-topline">
+
+                                <span class="tag">
+                                    Web Development
+                                </span>
+
+                                <button
+                                    class="save-button"
+                                    type="button"
+                                    aria-pressed="false">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+                            <h3>
+                                Full Stack Web Internship
+                            </h3>
+
+                            <p class="company">
+                                Code Labs
+                            </p>
+
+                            <div class="details-list">
+
+                                <div>
+                                    <span>Duration</span>
+                                    <strong>6 Months</strong>
+                                </div>
+
+                                <div>
+                                    <span>Mode</span>
+                                    <strong>Hybrid</strong>
+                                </div>
+
+                            </div>
+
+                            <details>
+
+                                <summary>
+                                    View Details
+                                </summary>
+
+                                <p>
+                                    Understand frontend development
+                                    and web application structure.
+                                </p>
+
+                            </details>
+
+                        </article>
+
+
+                        <!-- CARD 6 -->
+
+                        <article
+                            class="internship-card"
+                            data-category="Python"
+                            data-duration="3 Months"
+                            data-search="python automation scripting programming">
+
+                            <div class="card-topline">
+
+                                <span class="tag">
+                                    Python
+                                </span>
+
+                                <button
+                                    class="save-button"
+                                    type="button"
+                                    aria-pressed="false">
+
+                                    ♡
+
+                                </button>
+
+                            </div>
+
+                            <h3>
+                                Python Automation Internship
+                            </h3>
+
+                            <p class="company">
+                                Tech Minds
+                            </p>
+
+                            <div class="details-list">
+
+                                <div>
+                                    <span>Duration</span>
+                                    <strong>3 Months</strong>
+                                </div>
+
+                                <div>
+                                    <span>Mode</span>
+                                    <strong>Remote</strong>
+                                </div>
+
+                            </div>
+
+                            <details>
+
+                                <summary>
+                                    View Details
+                                </summary>
+
+                                <p>
+                                    Build simple automation scripts
+                                    and improve Python programming skills.
+                                </p>
+
+                            </details>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+
+                <p
+                    class="empty-state"
+                    id="empty-state"
+                    hidden>
+
+                    No internships match your search.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section
+            class="about-section"
+            id="about">
+
+            <div class="container about-grid">
+
+                <div>
+
+                    <p class="eyebrow">
+                        ABOUT THE PROJECT
+                    </p>
+
+                    <h2>
+                        Mobile-first by design.
+                    </h2>
+
+                </div>
+
+                <p>
+                    Internship Finder is a responsive frontend
+                    interface designed for students. It starts
+                    with a mobile layout and expands for tablet
+                    and desktop screens.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SAVED ================= -->
+
+        <section
+            class="saved-section"
+            id="saved">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <p class="eyebrow">
+                        YOUR PICKS
+                    </p>
+
+                    <h2>
+                        Saved Internships
+                    </h2>
+
+                </div>
+
+                <div id="saved-list">
+
+                    <p class="saved-empty">
+                        You have not saved any internships yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <p>
+                <strong>Internship Finder</strong>
+            </p>
+
+            <p>
+                Project 1 — Responsive Frontend Interface
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
